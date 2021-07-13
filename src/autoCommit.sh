@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# git rule
+# 別ブランチを作成し、pushしただけでは草は生えない
+# 別ブランチを作成したのであればデフォルトブランチにmergeまでしないと生えない。
+
 # 定数
 PATH=${pwd}
 
@@ -13,7 +17,7 @@ fireName=${date '+%Y%m%d'}
 which uuidgen # /usr/bin/uuidgen
 if [ "$0" eq 0]:
     # uuid実行バイナリがあることを確認し生成する。
-    uuidPath = which uuidgen
+    uuid = uuidgen
 fi
 
 # commit message
@@ -33,6 +37,12 @@ declare -A commitWeeks = (
     [6]="5"
     [7]="5"
 )
+
+# とりあえずjs風に書いてあとでリライトする
+
+for (i = 1; i < commitWeeks.length; i++) {
+    if ()
+}
 
 # commit 回数によって24時間を分ける。
 
