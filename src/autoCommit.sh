@@ -9,7 +9,15 @@ dirName='commits'
 # 作成ファイル名 日付かuuidか？
 fireName=${date '+%Y%m%d'}
 
+# uuid 生成
+which uuidgen # /usr/bin/uuidgen
+if [ "$0" eq 0]:
+    # uuid実行バイナリがあることを確認し生成する。
+    uuidPath = which uuidgen
+fi
+
 # commit message
+commitMsg = `コード修正${uuid}`
 
 # 現在の曜日
 ## dateコマンドは引数に+%uwつけると月曜日-日曜日を1~7の数値として取得できる
@@ -31,11 +39,11 @@ declare -A commitWeeks = (
 # ディレクトリがなかったら作成
 if []:
     mkdir `${PATH}${dirName}`
-
+fi
 # ファイルがなかったら作成
 if []:
     toucch `${PATH}${dirName}`
-
+fi
 # 曜日ごとの処理
 
 for ()
