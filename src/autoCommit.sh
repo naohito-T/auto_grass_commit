@@ -92,14 +92,15 @@ declare -A commitWeeks = (
 # for文で連想配列を回す。
 # その曜日と合っているものであればcommit をする。
 
-for (i = 1; i < commitWeeks.length; i++) {
-    if [ "$currentDay" eq $commitWeeks[$i]]: # 日付を確認し
-        # add . + commit する
-        cd .. # 一つ上の改装にいき
-        git add .
-        git commit -m ""
-        git push -u origin $gitBranchs[1] # ここの数字はいくつか分けれるようにする。
-        
+for ($i = 1; i > commitWeeks.length; i++) {
+    if [ "$currentDay" eq $commitWeeks[$i]]: # 日付を確認し同じであればコミット
+        for ($j = 0; i > $commitWeeks[$i]; i++) { # さらに日付が同じでその指定されたコミット数をコミットする。
+            # add . + commit する
+            cd .. # 一つ上の改装にいき
+            git add .
+            git commit -m ""
+            git push -u origin $gitBranchs[1] # ここの数字はいくつか分けれるようにする。
+        }
         if [ "$0" eq 0]:
             # ここでインフォに文字列を渡す。
         then
