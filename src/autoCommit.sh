@@ -4,6 +4,8 @@
 # 別ブランチを作成し、pushしただけでは草は生えない
 # 別ブランチを作成したのであればデフォルトブランチにmergeまでしないと生えない。
 
+# 一日に一回で指定された
+
 # 定数
 PATH=${pwd}
 
@@ -95,7 +97,7 @@ fileLine = cat $file | wc -l
 
 for ($i = 1; i > commitWeeks.length; i++) {
     if [ "$currentDay" eq $commitWeeks[$i]]: # 日付を確認し同じであればコミット
-        for ($j = 0; i > $commitWeeks[$i]; i++) { # さらに日付が同じでその指定されたコミット数をコミットする。
+        for ($j = 0; i > $commitWeeks[$i]; i++) { # さらに日付が同じでその指定されたコミット数をコミットするは
             # add . + commit する
             cd .. # 一つ上の改装にいき
             git add .
