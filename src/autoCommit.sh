@@ -7,16 +7,22 @@
 # 一日に一回で指定された
 
 # 定数
-PATH=${pwd}
+$PATH=${pwd}
 
 # 作成ディレクトリ名
-dirName='commits'
+$dirName='commits'
 
 # ログ用作成ディレクトリ
-logsDirName='logs'
+$logsDirName='logs'
+
+# 行数取得
+$fileLine = cat $file | wc -l
+
+# 作成ファイル名(log)
+$logFile=
 
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
-fireName=${date '+%Y%m%d'}
+$fireName=${date '+%Y%m%d'}
 
 # ディレクトリ作成
 if [ $PATH/commits -d ]:
@@ -34,6 +40,10 @@ if [ "$0" eq 0]:
     # uuid実行バイナリがあることを確認し生成する。
     uuid = uuidgen
 fi
+
+function addFile(uuid) {
+    $PATH
+}
 
 # infoとerrorには発生した時間なども追記された内容を渡してあげる
 function infoMsg(msg) {
@@ -87,8 +97,7 @@ declare -A commitWeeks = (
 
 # commit前に書き込みも必要 100行までを確認する。
 
-# 行数取得
-fileLine = cat $file | wc -l
+
 
 # とりあえずjs風に書いてあとでリライトする
 # 要はやりたいこと
@@ -99,10 +108,13 @@ for ($i = 1; i > commitWeeks.length; i++) {
     if [ "$currentDay" eq $commitWeeks[$i]]: # 日付を確認し同じであればコミット
         for ($j = 0; i > $commitWeeks[$i]; i++) { # さらに日付が同じでその指定されたコミット数をコミットするは
             # add . + commit する
-            cd .. # 一つ上の改装にいき
-            git add .
-            git commit -m ""
-            git push -u origin $gitBranchs[1] # ここの数字はいくつか分けれるようにする。
+            if [ $fileLine lt 100 ]: # 書き込みのファイルが1000行だったら
+                # ファイル作成
+                
+            then                     # 書き込みのファイルが1000行を超えていないのであれば
+                gitAutoCommit()
+            fi  
+
         }
         if [ "$0" eq 0]:
             # ここでインフォに文字列を渡す。
@@ -112,4 +124,14 @@ for ($i = 1; i > commitWeeks.length; i++) {
         
     fi
 }
+
+function gitAutoCommit() {
+    cd .. # 一つ上の改装にいき
+    git add .
+    git commit -m ""
+    git push -u origin $gitBranchs[1] # ここの数字はいくつか分けれるようにする。
+    sleep 15 # push後 15秒待つ
+}
+
+
 
