@@ -4,25 +4,20 @@
 # 別ブランチを作成し、pushしただけでは草は生えない
 # 別ブランチを作成したのであればデフォルトブランチにmergeまでしないと生えない。
 
-# 一日に一回で指定された
+# 一日に一回でcron起動にする(自分のPCでかなり動作させたくため)
 
 # 定数
 $PATH=${pwd}
-
-# 作成ディレクトリ名
+# commit用ディレクトリ名
 $dirName='commits'
-
-# ログ用作成ディレクトリ
-$logsDirName='logs'
-
-# 行数取得
-$fileLine = cat $file | wc -l
-
-# 作成ファイル名(log)
-$logFile=
-
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
 $fireName=${date '+%Y%m%d'}
+# ログ用作成ディレクトリ
+$logsDirName='logs'
+# 作成ファイル名(log)
+$logFile=
+# 行数取得
+$fileLine=cat `${PATH}${dirName}${file}` | wc -l
 
 # ディレクトリ作成
 if [ $PATH/commits -d ]:
