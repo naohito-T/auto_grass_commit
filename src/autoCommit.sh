@@ -10,7 +10,7 @@ PATH=${pwd}
 # 作成ディレクトリ名
 dirName='commits'
 
-# 作成ファイル名 日付かuuidか？
+# 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
 fireName=${date '+%Y%m%d'}
 
 # uuid 生成
@@ -38,7 +38,14 @@ declare -A commitWeeks = (
     [7]="5"
 )
 
+# commit前に書き込みも必要 100行までを確認する。
+
+
+
 # とりあえずjs風に書いてあとでリライトする
+# 要はやりたいこと
+# for文で連想配列を回す。
+# その曜日と合っているものであればcommit をする。
 
 for (i = 1; i < commitWeeks.length; i++) {
     if ()
