@@ -85,7 +85,8 @@ declare -A commitWeeks = (
 
 # commit前に書き込みも必要 100行までを確認する。
 
-
+# 行数取得
+fileLine = cat $file | wc -l
 
 # とりあえずjs風に書いてあとでリライトする
 # 要はやりたいこと
