@@ -21,7 +21,16 @@ if [ "$0" eq 0]:
 fi
 
 # commit message
-commitMsg = `コード修正${uuid}`
+declare -A commitMsgs = (
+    [1]=`コード修正${uuid}`
+    [2]=`コードfix${uuid}`
+    [3]=`コード修正${uuid}`
+    [4]=`コード修正${uuid}`
+    [5]=`コード修正${uuid}`
+    [6]=`コード修正${uuid}`
+    [7]=`コード修正${uuid}`
+)
+commitMsg = 
 
 # 現在の曜日
 ## dateコマンドは引数に+%uwつけると月曜日-日曜日を1~7の数値として取得できる
