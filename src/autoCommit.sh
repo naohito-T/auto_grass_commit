@@ -111,6 +111,13 @@ for ($i = 1; i > commitWeeks.length; i++) {
             if [ $fileLine lt 100 ]: # 書き込みのファイルが1000行だったら
                 # ファイル作成
                 
+                # ファイル書き込み
+                echo '~~~'  >> newFile 
+                if [ "$0" eq 0 ]
+                # ファイル作成書き込みが成功したら元のファイルは削除
+                fi
+                # autocommit
+                gitAutoCommit()
             then                     # 書き込みのファイルが1000行を超えていないのであれば
                 gitAutoCommit()
             fi  
@@ -125,12 +132,16 @@ for ($i = 1; i > commitWeeks.length; i++) {
     fi
 }
 
-function gitAutoCommit() {
+function gitAutoCommit(flag) {
     cd .. # 一つ上の改装にいき
     git add .
     git commit -m ""
     git push -u origin $gitBranchs[1] # ここの数字はいくつか分けれるようにする。
     sleep 15 # push後 15秒待つ
+    # flagがあればgit branchを新規に作る
+    if [flag] 
+        git ch -b
+    fi
 }
 
 
