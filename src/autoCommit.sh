@@ -11,10 +11,20 @@ PATH=${pwd}
 dirName='commits'
 
 # ログ用作成ディレクトリ
-logsDirName='log'
+logsDirName='logs'
 
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
 fireName=${date '+%Y%m%d'}
+
+# ディレクトリ作成
+if [ $PATH/commits -d ]:
+    mkdir -p $PATH/commits
+fi
+
+# ログディレクトリ作成
+if [ $PATH/logs -d ]:
+    mkdir -p $PATH/logs
+fi
 
 # uuid 生成
 which uuidgen # /usr/bin/uuidgen
@@ -22,6 +32,15 @@ if [ "$0" eq 0]:
     # uuid実行バイナリがあることを確認し生成する。
     uuid = uuidgen
 fi
+
+# infoとerrorには発生した時間なども追記された内容を渡してあげる
+function infoMsg(msg) {
+    echo 'info: ' + `$msg` >> $PATH/logs/log.txt
+}
+
+function errorMsg(msg) {
+    echo 'error:' + `$msg` >> $PATH/logs/log.txt
+}
 
 # ファイル書き込み内容
 declare -A commitMsgs = (
