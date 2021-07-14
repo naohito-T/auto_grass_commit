@@ -64,6 +64,10 @@ declare -A commitMsgs = (
     [7]=`feature/fix_code_shell${uuid}`
 )
 
+declare -A gitBranchs = (
+    [1]='feature/fix_code'
+)
+
 # 現在の曜日
 ## dateコマンドは引数に+%uwつけると月曜日-日曜日を1~7の数値として取得できる
 currentDay=${date '+%u'}
@@ -89,28 +93,19 @@ declare -A commitWeeks = (
 # その曜日と合っているものであればcommit をする。
 
 for (i = 1; i < commitWeeks.length; i++) {
-    if [ "$currentDay" eq commitWeeks[$i]]:
+    if [ "$currentDay" eq $commitWeeks[$i]]: # 日付を確認し
         # add . + commit する
+        cd .. # 一つ上の改装にいき
         git add .
         git commit -m ""
+        git push -u origin $gitBranchs[1] # ここの数字はいくつか分けれるようにする。
+        
+        if [ "$0" eq 0]:
+            # ここでインフォに文字列を渡す。
+        then
+            # errorに文字列を渡す
+        fi
         
     fi
 }
-
-# commit 回数によって24時間を分ける。
-
-# ディレクトリがなかったら作成
-if []:
-    mkdir `${PATH}${dirName}`
-fi
-# ファイルがなかったら作成
-if []:
-    toucch `${PATH}${dirName}`
-fi
-# 曜日ごとの処理
-
-for ()
-
-git add -u
-git commit -m ""
 
