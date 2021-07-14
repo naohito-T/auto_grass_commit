@@ -10,6 +10,9 @@ PATH=${pwd}
 # 作成ディレクトリ名
 dirName='commits'
 
+# ログ用作成ディレクトリ
+logsDirName='log'
+
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
 fireName=${date '+%Y%m%d'}
 
@@ -20,17 +23,27 @@ if [ "$0" eq 0]:
     uuid = uuidgen
 fi
 
-# commit message
+# ファイル書き込み内容
 declare -A commitMsgs = (
-    [1]=`コード修正${uuid}`
-    [2]=`コードfix${uuid}`
+    [1]=`${uuid}`
+    [2]=`${uuid}`
     [3]=`コード修正${uuid}`
     [4]=`コード修正${uuid}`
     [5]=`コード修正${uuid}`
     [6]=`コード修正${uuid}`
     [7]=`コード修正${uuid}`
 )
-commitMsg = 
+
+# commit message 関数化にした方がよいかも
+declare -A commitMsgs = (
+    [1]=`feature/fix_code_shell${uuid}`
+    [2]=`feature/fix_code_shell${uuid}`
+    [3]=`feature/fix_code_shell${uuid}`
+    [4]=`feature/fix_code_shell${uuid}`
+    [5]=`feature/fix_code_shell${uuid}`
+    [6]=`feature/fix_code_shell${uuid}`
+    [7]=`feature/fix_code_shell${uuid}`
+)
 
 # 現在の曜日
 ## dateコマンドは引数に+%uwつけると月曜日-日曜日を1~7の数値として取得できる
@@ -57,7 +70,12 @@ declare -A commitWeeks = (
 # その曜日と合っているものであればcommit をする。
 
 for (i = 1; i < commitWeeks.length; i++) {
-    if ()
+    if [ "$currentDay" eq commitWeeks[$i]]:
+        # add . + commit する
+        git add .
+        git commit -m ""
+        
+    fi
 }
 
 # commit 回数によって24時間を分ける。
