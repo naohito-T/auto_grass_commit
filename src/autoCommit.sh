@@ -5,6 +5,7 @@
 # 別ブランチを作成したのであればデフォルトブランチにmergeまでしないと生えない。
 
 # 一日に一回でcron起動にする(自分のPCでかなり動作させたくため)
+# 夜 22時 startで良い
 
 # $変数名を囲むのはダブルクォートでグロブやワードスプリットを防ぐため
 
@@ -18,8 +19,8 @@ COMMIT_FILE=
 LOGS_DIR='/logs'
 # 作成ファイル名(log)
 LOG_FILE="log.$(date '+%Y%m%d')"
-# 行数取得
-$fileLine=cat "$WORK_PATH""$COMMIT_DIR"$file | wc -l
+# 行数取得 500行で終わりにする。
+FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR"$file | wc -l
 # ディレクトリ作成
 if [ -d "$WORK_PATH""$COMMIT_DIR" ]; then
     mkdir -p "$WORK_PATH""$COMMIT_DIR"
