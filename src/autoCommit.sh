@@ -19,7 +19,7 @@ LOGS_DIR='/logs'
 # 作成ファイル名(log)
 $logFile=
 # 行数取得
-$fileLine=cat `${PATH}${dirName}${file}` | wc -l
+$fileLine=cat "$WORK_PATH""$COMMIT_DIR"$file | wc -l
 # ディレクトリ作成
 if [ -d "$WORK_PATH""$COMMIT_DIR" ]; then
     mkdir -p "$WORK_PATH""$COMMIT_DIR"
@@ -35,8 +35,8 @@ if [ "$?" -eq 0 ]; then
     uuid=uuidgen
 fi
 
-function addFile(uuid) {
-    $PATH
+function touchFile () {
+    touch "$1" "$2"
 }
 
 # infoとerrorには発生した時間なども追記された内容を渡してあげる
