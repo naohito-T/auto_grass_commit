@@ -39,7 +39,7 @@ fi
 #  *  @return   
 #  *
 # */
-function touchFile () 
+function touchFile () {
     touch "$1" "$2" "$3"
 }
 
