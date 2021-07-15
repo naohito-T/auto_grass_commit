@@ -35,8 +35,12 @@ if [ "$?" -eq 0 ]; then
     uuid=uuidgen
 fi
 
-function touchFile () {
-    touch "$1" "$2"
+# /* 
+#  *  @return   
+#  *
+# */
+function touchFile () 
+    touch "$1" "$2" "$3"
 }
 
 # infoとerrorには発生した時間なども追記された内容を渡してあげる
