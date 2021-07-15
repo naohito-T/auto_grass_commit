@@ -7,11 +7,11 @@
 # 一日に一回でcron起動にする(自分のPCでかなり動作させたくため)
 
 # 定数
-$PATH=${pwd}
+HOME_PATH=$(pwd)
 # commit用ディレクトリ名
-$dirName='commits'
+dirName='commits'
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
-$fireName=`commit.$(date '+%Y%m%d').sh`
+fireName=`commit.$(date '+%Y%m%d').sh`
 # ログ用作成ディレクトリ
 $logsDirName='logs'
 # 作成ファイル名(log)
@@ -141,3 +141,6 @@ gitAutoCommit () {
 # 条件式で<,>,<=,>=は使えない。代わりに-lt(<),-gt(>),-le(<=),-ge(>=)というのが使える。
 # それぞれ-lt(less than),-gt(greater than),-le(less than or equal),-ge(greater than or equal)と覚える。
 # $? 直前のコマンドが正常処理したかを調べる。
+# testコマンドの-a(AND条件）、-o(OR条件）で書けるが、&&(AND条件）、||(OR条件）の方が個人的には分かりやすい。
+# ただし、-a、-oは１つのtestコマンドで条件判定するのに対し、&&、||は終了ステータスコードを判断して以降の処理を実行するもの
+# なので書き方が少し違う点に注意。
