@@ -19,7 +19,7 @@ $logFile=
 # 行数取得
 $fileLine=cat `${PATH}${dirName}${file}` | wc -l
 # ディレクトリ作成
-if [ $PATH/commits -d ]:
+if [ -d $PATH/commits ]; then
     mkdir -p $PATH/commits
 fi
 # ログディレクトリ作成
@@ -141,4 +141,4 @@ gitAutoCommit () {
 
 # 条件式で<,>,<=,>=は使えない。代わりに-lt(<),-gt(>),-le(<=),-ge(>=)というのが使える。
 # それぞれ-lt(less than),-gt(greater than),-le(less than or equal),-ge(greater than or equal)と覚える。
-
+# $? 直前のコマンドが正常処理したかを調べる。
