@@ -23,15 +23,14 @@ if [ -d $PATH/commits ]; then
     mkdir -p $PATH/commits
 fi
 # ログディレクトリ作成
-if [ $PATH/logs -d ]:
+if [ ! -d $PATH/logs  ]; then
     mkdir -p $PATH/logs
 fi
-
 # uuid 生成
 which uuidgen # /usr/bin/uuidgen
-if [ "$0" eq 0]:
+if [ "$?" -eq 0 ]; then
     # uuid実行バイナリがあることを確認し生成する。
-    uuid = uuidgen
+    uuid=uuidgen
 fi
 
 function addFile(uuid) {
