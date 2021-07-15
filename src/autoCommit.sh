@@ -11,19 +11,17 @@ $PATH=${pwd}
 # commit用ディレクトリ名
 $dirName='commits'
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
-$fireName=${date '+%Y%m%d'}
+$fireName=`commit.$(date '+%Y%m%d').sh`
 # ログ用作成ディレクトリ
 $logsDirName='logs'
 # 作成ファイル名(log)
 $logFile=
 # 行数取得
 $fileLine=cat `${PATH}${dirName}${file}` | wc -l
-
 # ディレクトリ作成
 if [ $PATH/commits -d ]:
     mkdir -p $PATH/commits
 fi
-
 # ログディレクトリ作成
 if [ $PATH/logs -d ]:
     mkdir -p $PATH/logs
