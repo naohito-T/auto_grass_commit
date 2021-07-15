@@ -21,12 +21,12 @@ $logFile=
 # 行数取得
 $fileLine=cat `${PATH}${dirName}${file}` | wc -l
 # ディレクトリ作成
-if [ -d $WORK_PATH$COMMIT_DIR ]; then
-    mkdir -p $PATH/commits
+if [ -d "$WORK_PATH""$COMMIT_DIR" ]; then
+    mkdir -p "$WORK_PATH""$COMMIT_DIR"
 fi
 # ログディレクトリ作成
-if [ ! -d $PATH/logs  ]; then
-    mkdir -p $PATH/logs
+if [ ! -d "$WORK_PATH""$LOGS_DIR"  ]; then
+    mkdir -p "$WORK_PATH""$LOGS_DIR"
 fi
 # uuid 生成
 which uuidgen # /usr/bin/uuidgen
