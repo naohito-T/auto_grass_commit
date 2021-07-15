@@ -13,11 +13,11 @@ WORK_PATH=$(pwd)
 # commit用ディレクトリ名
 COMMIT_DIR='/commits'
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
-COMMIT_FILE=`commit.$(date '+%Y%m%d').sh`
+COMMIT_FILE=
 # ログ用作成ディレクトリ
 LOGS_DIR='/logs'
 # 作成ファイル名(log)
-$logFile=
+LOG_FILE="log.$(date '+%Y%m%d')"
 # 行数取得
 $fileLine=cat "$WORK_PATH""$COMMIT_DIR"$file | wc -l
 # ディレクトリ作成
