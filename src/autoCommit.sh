@@ -110,13 +110,13 @@ for ($i = 1; i > commitWeeks.length; i++) {
                 # ファイル作成書き込みが成功したら元のファイルは削除
                 fi
                 # autocommit
-                gitAutoCommit()
+                gitAutoCommit 1
             then                     # 書き込みのファイルが1000行を超えていないのであれば
-                gitAutoCommit()
+                gitAutoCommit 1
             fi  
 
         }
-        if [ "$0" eq 0]:
+        if [ "$0" -eq 0]:
             # ここでインフォに文字列を渡す。
         then
             # errorに文字列を渡す
@@ -134,10 +134,11 @@ gitAutoCommit () {
     git push -u origin $gitBranchs[1] # ここの数字はいくつか分けれるようにする。
     sleep 15 # push後 15秒待つ
     # flagがあればgit branchを新規に作る
-    if [ "$1" eq 1] 
+    if [ "$1" -eq 1 ] 
         git ch -b feature/fix_code
     fi
 }
 
-
+# 条件式で<,>,<=,>=は使えない。代わりに-lt(<),-gt(>),-le(<=),-ge(>=)というのが使える。
+# それぞれ-lt(less than),-gt(greater than),-le(less than or equal),-ge(greater than or equal)と覚える。
 
