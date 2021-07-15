@@ -125,15 +125,17 @@ for ($i = 1; i > commitWeeks.length; i++) {
     fi
 }
 
-function gitAutoCommit(flag) {
+# シェルスクリプトでの関数はfunction省略可能
+# 引数は$0 $1とアクセスできる
+gitAutoCommit () {
     cd .. # 一つ上の改装にいき
     git add .
     git commit -m ""
     git push -u origin $gitBranchs[1] # ここの数字はいくつか分けれるようにする。
     sleep 15 # push後 15秒待つ
     # flagがあればgit branchを新規に作る
-    if [flag] 
-        git ch -b
+    if [ "$1" eq 1] 
+        git ch -b feature/fix_code
     fi
 }
 
