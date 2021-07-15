@@ -6,20 +6,22 @@
 
 # 一日に一回でcron起動にする(自分のPCでかなり動作させたくため)
 
+# $変数名を囲むのはダブルクォートでグロブやワードスプリットを防ぐため
+
 # 定数
-HOME_PATH=$(pwd)
+WORK_PATH=$(pwd)
 # commit用ディレクトリ名
-dirName='commits'
+COMMIT_DIR='/commits'
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
-fireName=`commit.$(date '+%Y%m%d').sh`
+COMMIT_FILE=`commit.$(date '+%Y%m%d').sh`
 # ログ用作成ディレクトリ
-$logsDirName='logs'
+LOGS_DIR='/logs'
 # 作成ファイル名(log)
 $logFile=
 # 行数取得
 $fileLine=cat `${PATH}${dirName}${file}` | wc -l
 # ディレクトリ作成
-if [ -d $PATH/commits ]; then
+if [ -d $WORK_PATH$COMMIT_DIR ]; then
     mkdir -p $PATH/commits
 fi
 # ログディレクトリ作成
