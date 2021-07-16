@@ -9,14 +9,14 @@
 
 # $変数名を囲むのはダブルクォートでグロブやワードスプリットを防ぐため
 
-# infoとerrorには発生した時間なども追記された内容を渡してあげる
-function infoMsg () {
-    echo -e "info: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
-}
+# # infoとerrorには発生した時間なども追記された内容を渡してあげる
+# function infoMsg () {
+#     echo -e "info: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
+# }
 
-function errorMsg () {
-    echo -e "error: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
-}
+# function errorMsg () {
+#     echo -e "error: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
+# }
 
 # 定数
 WORK_PATH=$(pwd)
@@ -37,12 +37,10 @@ if [ ! -d "$WORK_PATH""$LOGS_DIR"  ]; then
     mkdir -p "$WORK_PATH""$LOGS_DIR"
 fi
 
-# /* 
 #  * @param 1 dirName
 #  * @param 2 fileCreateDir
 #  * @param 3 fileName
 #  * @return newFile
-# */
 function touchFile () {
     touch "$1" "$2" "$3"
 }
@@ -56,6 +54,8 @@ fi
 if [ ! -f "$WORK_PATH""$LOGS_DIR""$LOG_FILE" ]; then
     touchFile "$WORK_PATH" "$LOGS_DIR" "$LOG_FILE"
 fi
+
+exec 1&2 >> "$LOG_FILE"
 
 # 行数取得 一つのファイルは500行で終わりにする。
 FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" | wc -l
