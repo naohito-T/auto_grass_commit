@@ -9,21 +9,25 @@
 
 # $変数名を囲むのはダブルクォートでグロブやワードスプリットを防ぐため
 
+# infoとerrorには発生した時間なども追記された内容を渡してあげる
+function infoMsg () {
+    echo -e "info: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
+}
+
+function errorMsg () {
+    echo -e "error: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
+}
+
 # 定数
 WORK_PATH=$(pwd)
 # commit用ディレクトリ名
 COMMIT_DIR='/commits'
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
 COMMIT_FILE='auto_commits'
-# 実行権限がなければ追加する
-if [ ! -x "$COMMIT_DIR""$COMMIT_FILE" ]; then
-    chmod 755 "$COMMIT_DIR""$COMMIT_FILE"
-fi
 # ログ用作成ディレクトリ
 LOGS_DIR='/logs'
 # 作成ファイル名(log)
 LOG_FILE="log.$(date '+%Y%m%d')"
-
 # ディレクトリ作成
 if [ ! -d "$WORK_PATH""$COMMIT_DIR" ]; then
     mkdir -p "$WORK_PATH""$COMMIT_DIR"
@@ -32,19 +36,6 @@ fi
 if [ ! -d "$WORK_PATH""$LOGS_DIR"  ]; then
     mkdir -p "$WORK_PATH""$LOGS_DIR"
 fi
-
-# 行数取得 一つのファイルは500行で終わりにする。
-FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" | wc -l
-
-function getUuid () {
-    # uuid実行バイナリがあることを確認し生成
-    which uuidgen # /usr/bin/uuidgen
-    if [ "$?" -eq 0 ]; then
-        echo uuidgen
-    fi
-}
-uuid=$(getUuid)
-
 
 # /* 
 #  * @param 1 dirName
@@ -56,14 +47,35 @@ function touchFile () {
     touch "$1" "$2" "$3"
 }
 
-# infoとerrorには発生した時間なども追記された内容を渡してあげる
-function infoMsg () {
-    echo -e "info: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
-}
+# commitファイルがなければ作成
+if [ ! -f "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" ]; then
+    touchFile "$WORK_PATH" "$COMMIT_DIR" "$COMMIT_FILE"
+    
+fi
 
-function errorMsg () {
-    echo -e "error: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
+if [ ! -f "$WORK_PATH""$LOGS_DIR""$LOG_FILE" ]; then
+    touchFile "$WORK_PATH" "$LOGS_DIR" "$LOG_FILE"
+fi
+
+# 行数取得 一つのファイルは500行で終わりにする。
+FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" | wc -l
+
+# 実行権限がなければ追加する
+if [ ! -x "$COMMIT_DIR""$COMMIT_FILE" ]; then
+    chmod 755 "$COMMIT_DIR""$COMMIT_FILE"
+fi
+
+function getUuid () {
+    # uuid実行バイナリがあることを確認し生成
+    which uuidgen # /usr/bin/uuidgen
+    if [ "$?" -eq 0 ]; then
+        echo uuidgen
+    fi
 }
+uuid=$(getUuid)
+
+
+
 
 # ファイル書き込み内容
 declare -A writeOneLines = (
@@ -106,10 +118,6 @@ declare -A commitWeeks = (
     [6]="5"
     [7]="5"
 )
-
-# commit前に書き込みも必要 100行までを確認する。
-
-
 
 # とりあえずjs風に書いてあとでリライトする
 # 要はやりたいこと
