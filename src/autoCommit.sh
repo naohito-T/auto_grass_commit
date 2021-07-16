@@ -14,7 +14,7 @@ WORK_PATH=$(pwd)
 # commit用ディレクトリ名
 COMMIT_DIR='/commits'
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
-COMMIT_FILE=
+COMMIT_FILE='auto_commits.sh'
 # ログ用作成ディレクトリ
 LOGS_DIR='/logs'
 # 作成ファイル名(log)
@@ -22,7 +22,7 @@ LOG_FILE="log.$(date '+%Y%m%d')"
 # 行数取得 500行で終わりにする。
 FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR"$file | wc -l
 # ディレクトリ作成
-if [ -d "$WORK_PATH""$COMMIT_DIR" ]; then
+if [ ! -d "$WORK_PATH""$COMMIT_DIR" ]; then
     mkdir -p "$WORK_PATH""$COMMIT_DIR"
 fi
 # ログディレクトリ作成
@@ -37,20 +37,22 @@ if [ "$?" -eq 0 ]; then
 fi
 
 # /* 
-#  *  @return   
-#  *
+#  * @param 1 dirName
+#  * @param 2 fileCreateDir
+#  * @param 3 fileName
+#  * @return newFile
 # */
 function touchFile () {
     touch "$1" "$2" "$3"
 }
 
 # infoとerrorには発生した時間なども追記された内容を渡してあげる
-function infoMsg(msg) {
-    echo 'info: ' + `$msg` >> $PATH/logs/log.txt
+function infoMsg () {
+    echo -e "info: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
 }
 
-function errorMsg(msg) {
-    echo 'error:' + `$msg` >> $PATH/logs/log.txt
+function errorMsg () {
+    echo -e "error: ${1}" >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
 }
 
 # ファイル書き込み内容
