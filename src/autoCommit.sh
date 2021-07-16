@@ -23,11 +23,11 @@ WORK_PATH=$(pwd)
 # commit用ディレクトリ名
 COMMIT_DIR='/commits'
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
-COMMIT_FILE='auto_commits'
+COMMIT_FILE='/auto_commits.txt'
 # ログ用作成ディレクトリ
 LOGS_DIR='/logs'
 # 作成ファイル名(log)
-LOG_FILE="log.$(date '+%Y%m%d')"
+LOG_FILE="/log.$(date '+%Y%m%d').txt"
 # ディレクトリ作成
 if [ ! -d "$WORK_PATH""$COMMIT_DIR" ]; then
     mkdir -p "$WORK_PATH""$COMMIT_DIR"
@@ -37,33 +37,24 @@ if [ ! -d "$WORK_PATH""$LOGS_DIR"  ]; then
     mkdir -p "$WORK_PATH""$LOGS_DIR"
 fi
 
-#  * @param 1 dirName
-#  * @param 2 fileCreateDir
-#  * @param 3 fileName
-#  * @return newFile
-function touchFile () {
-    touch "$1" "$2" "$3"
-}
-
 # commitファイルがなければ作成
 if [ ! -f "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" ]; then
-    touchFile "$WORK_PATH" "$COMMIT_DIR" "$COMMIT_FILE"
-    
+    touch "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE"
 fi
 
 if [ ! -f "$WORK_PATH""$LOGS_DIR""$LOG_FILE" ]; then
-    touchFile "$WORK_PATH" "$LOGS_DIR" "$LOG_FILE"
+    touch "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
 fi
 
-exec 1&2 >> "$LOG_FILE"
+exec 1&2 >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
 
 # 行数取得 一つのファイルは500行で終わりにする。
 FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" | wc -l
 
 # 実行権限がなければ追加する
-if [ ! -x "$COMMIT_DIR""$COMMIT_FILE" ]; then
-    chmod 755 "$COMMIT_DIR""$COMMIT_FILE"
-fi
+# if [ ! -x "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" ]; then
+#     chmod 766 "$COMMIT_DIR""$COMMIT_FILE"
+# fi
 
 function getUuid () {
     # uuid実行バイナリがあることを確認し生成
