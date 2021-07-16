@@ -33,12 +33,16 @@ fi
 if [ ! -d "$WORK_PATH""$LOGS_DIR"  ]; then
     mkdir -p "$WORK_PATH""$LOGS_DIR"
 fi
-# uuid 生成
-which uuidgen # /usr/bin/uuidgen
-if [ "$?" -eq 0 ]; then
-    # uuid実行バイナリがあることを確認し生成する。
-    uuid=uuidgen
-fi
+
+function getUuid () {
+    # uuid実行バイナリがあることを確認し生成
+    which uuidgen # /usr/bin/uuidgen
+    if [ "$?" -eq 0 ]; then
+        echo uuidgen
+    fi
+}
+uuidRtn=$(getUuid)
+
 
 # /* 
 #  * @param 1 dirName
