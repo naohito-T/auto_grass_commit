@@ -14,7 +14,11 @@ WORK_PATH=$(pwd)
 # commit用ディレクトリ名
 COMMIT_DIR='/commits'
 # 作成ファイル名 日付かuuidか？ パーミッション変更処理も必要かも
-COMMIT_FILE='auto_commits.sh'
+COMMIT_FILE='auto_commits'
+# 実行権限がなければ追加する
+if [ ! -x "$COMMIT_DIR""$COMMIT_FILE" ]; then
+    chmod 755 "$COMMIT_DIR""$COMMIT_FILE"
+fi
 # ログ用作成ディレクトリ
 LOGS_DIR='/logs'
 # 作成ファイル名(log)
