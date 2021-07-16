@@ -23,8 +23,7 @@ fi
 LOGS_DIR='/logs'
 # 作成ファイル名(log)
 LOG_FILE="log.$(date '+%Y%m%d')"
-# 行数取得 500行で終わりにする。
-FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR"$file | wc -l
+
 # ディレクトリ作成
 if [ ! -d "$WORK_PATH""$COMMIT_DIR" ]; then
     mkdir -p "$WORK_PATH""$COMMIT_DIR"
@@ -34,6 +33,9 @@ if [ ! -d "$WORK_PATH""$LOGS_DIR"  ]; then
     mkdir -p "$WORK_PATH""$LOGS_DIR"
 fi
 
+# 行数取得 一つのファイルは500行で終わりにする。
+FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" | wc -l
+
 function getUuid () {
     # uuid実行バイナリがあることを確認し生成
     which uuidgen # /usr/bin/uuidgen
@@ -41,7 +43,7 @@ function getUuid () {
         echo uuidgen
     fi
 }
-uuidRtn=$(getUuid)
+uuid=$(getUuid)
 
 
 # /* 
@@ -64,14 +66,14 @@ function errorMsg () {
 }
 
 # ファイル書き込み内容
-declare -A commitMsgs = (
-    [1]=`${uuid}`
-    [2]=`${uuid}`
-    [3]=`コード修正${uuid}`
-    [4]=`コード修正${uuid}`
-    [5]=`コード修正${uuid}`
-    [6]=`コード修正${uuid}`
-    [7]=`コード修正${uuid}`
+declare -A writeOneLines = (
+    [1]="fix code${uuid}"
+    [2]="fix code${uuid}"
+    [3]="fix code${uuid}"
+    [4]="fix code${uuid}"
+    [5]="fix code${uuid}"
+    [6]="fix code${uuid}"
+    [7]="fix code${uuid}"
 )
 
 # commit message 関数化にした方がよいかも
@@ -86,7 +88,8 @@ declare -A commitMsgs = (
 )
 
 declare -A gitBranchs = (
-    [1]='feature/fix_code'
+    [1]="feature/fix_code${uuid}"
+    [2]='feature/fix_code'
 )
 
 # 現在の曜日
