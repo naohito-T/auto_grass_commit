@@ -1,0 +1,4 @@
+./autoCommit.sh: line 53: /Users/tanakanaohitoshi/work/product/auto_grass_commit/src/commits/auto_commits.txt: Permission denied
+       0
+./autoCommit.sh: line 73: syntax error near unexpected token `('
+./autoCommit.sh: line 73: `declare -A writeOneLines = ('
