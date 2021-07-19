@@ -50,6 +50,8 @@ function getUuid () {
     which uuidgen # /usr/bin/uuidgen
     if [ "$?" -eq 0 ]; then
         echo uuidgen
+    elif
+        echo 'Not Found uuidgen'
     fi
 }
 uuid=$(getUuid)
