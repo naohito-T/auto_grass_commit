@@ -34,6 +34,7 @@ if [ ! -f "$WORK_PATH""$LOGS_DIR""$LOG_FILE" ]; then
     touch "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
 fi
 
+# log出力(標準出力とエラー出力同時に出す)
 exec >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE" 2>&1
 
 ## ここまで完成
