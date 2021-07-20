@@ -33,6 +33,9 @@ function xxx() {
 
 [参考 URL](https://qiita.com/YutaSaito1991/items/c7c6bacb916f41ef1471)
 
+キーが存在しているか確認
+-n または-z オプションを使用
+
 ## for 文で連想配列を取り出す。
 
 ##
