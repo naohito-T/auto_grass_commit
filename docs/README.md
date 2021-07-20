@@ -43,3 +43,5 @@ function xxx() {
 ##
 
 ##
+
+## 別ファイルの sh から setting を読み込む
