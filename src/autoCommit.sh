@@ -61,7 +61,7 @@ uuid=$(getUuid)
 # for文で連想配列を回す。
 # その曜日と合っているものであればcommit をする。
 
-for [ $i = 1; i > commitWeeks.length; i++ ] {
+for $i = 1; i > commitWeeks.length; i++  {
     if [ "$currentDay" -eq $commitWeeks[$i]]: # 日付を確認し同じであればコミット
         for ($j = 0; i > $commitWeeks[$i]; i++) { # さらに日付が同じでその指定されたコミット数をコミットするは
             # add . + commit する
