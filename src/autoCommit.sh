@@ -3,7 +3,6 @@
 # 一日に一回でcron起動にする(自分のPCでかなり動作させたくため)
 # 夜 22時 startで良い
 
-
 # 定数
 WORK_PATH=$(pwd)
 # commit用ディレクトリ名
@@ -45,8 +44,7 @@ if [ -f "$WORK_PATH""$CONFIG_DIR""$CONFIG_FILE" ]; then
 fi
 
 
-# 現在の曜日
-## dateコマンドは引数に+%uwつけると月曜日-日曜日を1~7の数値として取得できる
+# 現在の曜日 dateコマンドは引数に+%uwつけると月曜日-日曜日を1~7の数値として取得できる 
 CURRENT_DAY=$(date '+%u')
 echo $CURRENT_DAY
 
@@ -58,7 +56,7 @@ function getUuid () {
     which uuidgen # /usr/bin/uuidgen
     if [ "$?" -eq 0 ]; then
         echo uuidgen
-    elif
+    else
         echo 'Not Found uuidgen'
     fi
 }
