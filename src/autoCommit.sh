@@ -4,7 +4,6 @@
 # 夜 22時 startで良い
 
 
-
 # 定数
 WORK_PATH=$(pwd)
 # commit用ディレクトリ名
@@ -15,6 +14,10 @@ COMMIT_FILE='/auto_commits.txt'
 LOGS_DIR='/logs'
 # 作成ファイル名(log)
 LOG_FILE="/log.$(date '+%Y%m%d').txt"
+# configディレクトリ
+CONFIG_DIR='config'
+# configファイル
+CONFIG_FILE='config.sh'
 # ディレクトリ作成
 if [ ! -d "$WORK_PATH""$COMMIT_DIR" ]; then
     mkdir -p "$WORK_PATH""$COMMIT_DIR"
@@ -23,25 +26,29 @@ fi
 if [ ! -d "$WORK_PATH""$LOGS_DIR"  ]; then
     mkdir -p "$WORK_PATH""$LOGS_DIR"
 fi
-
 # commitファイルがなければ作成
 if [ ! -f "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" ]; then
     touch "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE"
     chmod 777 "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE"
 fi
-
+# logファイルがなければ作成
 if [ ! -f "$WORK_PATH""$LOGS_DIR""$LOG_FILE" ]; then
     touch "$WORK_PATH""$LOGS_DIR""$LOG_FILE"
 fi
-
 # log出力(標準出力とエラー出力同時に出す)
 exec >> "$WORK_PATH""$LOGS_DIR""$LOG_FILE" 2>&1
-
 ## ここまで完成
+
+# configディレクトリにconifgファイルがあれば変数を読み込む
+if [ -f "$WORK_PATH""$CONFIG_DIR""$CONFIG_FILE" ]; then
+    source "$WORK_PATH""$CONFIG_DIR""$CONFIG_FILE"
+fi
+
 
 # 現在の曜日
 ## dateコマンドは引数に+%uwつけると月曜日-日曜日を1~7の数値として取得できる
-currentDay=$(date '+%u')
+CURRENT_DAY=$(date '+%u')
+echo $CURRENT_DAY
 
 # 行数取得 一つのファイルは500行で終わりにする。
 FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" | wc -l
