@@ -1,6 +1,12 @@
 #!/bin/bash
 
-# ファイル書き込み内容settings
+#
+# config
+# writeOneLine : ファイルに書き込む内容
+# commitMsgs : commitする際のmessage
+# commitWeeks : 各曜日ごとのcommit回数
+#
+
 declare -A writeOneLines=(
     [1]="fix code${uuid}"
     [2]="fix code${uuid}"
