@@ -20,22 +20,22 @@ declare -A commitWeeks=(
 
 # 配列
 writeOneLines=(
-    [0]="fix code${uuid}"
-    [1]="fix code${uuid}"
-    [2]="fix code${uuid}"
-    [3]="fix code${uuid}"
-    [4]="fix code${uuid}"
-    [5]="fix code${uuid}"
-    [6]="fix code${uuid}"
+    [0]="fix code"
+    [1]="fix code"
+    [2]="fix code"
+    [3]="fix code"
+    [4]="fix code"
+    [5]="fix code"
+    [6]="fix code"
 )
 
 # commit message settings (連想配列)
 commitMsgs=(
-    [0]="feature/fix_code_shell${uuid}"
-    [1]="feature/fix_code_shell${uuid}"
-    [2]="feature/fix_code_shell${uuid}"
-    [3]="feature/fix_code_shell${uuid}"
-    [4]="feature/fix_code_shell${uuid}"
-    [5]="feature/fix_code_shell${uuid}"
-    [6]="feature/fix_code_shell${uuid}"
+    [0]="feature/fix_code_shell"
+    [1]="feature/fix_code_shell"
+    [2]="feature/fix_code_shell"
+    [3]="feature/fix_code_shell"
+    [4]="feature/fix_code_shell"
+    [5]="feature/fix_code_shell"
+    [6]="feature/fix_code_shell"
 )
