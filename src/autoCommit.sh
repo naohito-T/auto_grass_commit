@@ -42,15 +42,14 @@ CURRENT_DAY=$(date '+%u')
 FILE_LINE=$(cat $WORK_PATH$COMMIT_DIR$COMMIT_FILE) | wc -l
 echo "${FILE_LINE}"
 
-## ここまで完成
-
 # function省略は動作しない環境があるとのことで、functionは付与
 function gitAutoCommit {
-    echo ${writeOneLines[$1]} >>"$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" # commitファイルに追記
-    cd $WORK_PATH
+    echo "${writeOneLines[$1]}" >>"$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" # commitファイルに追記
+    cd "$WORK_PATH" || exit 1
     git add .
-    sleep 3
+    sleep 2
     git commit -m "fix"
+    git push
 }
 
 for commitWeek in "${!commitWeeks[@]}"; do                      # 連想配列展開
@@ -60,14 +59,3 @@ for commitWeek in "${!commitWeeks[@]}"; do                      # 連想配列�
         done
     fi
 done
-
-# function getUuid {
-#     # uuid実行バイナリがあることを確認し生成
-#     which uuidgen # /usr/bin/uuidgen
-#     if [ $? -eq 0 ]; then
-#         echo uuidgen
-#     else
-#         echo 'Not Found uuidgen'
-#     fi
-# }
-# uuid=$(getUuid)
