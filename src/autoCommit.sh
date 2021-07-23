@@ -49,6 +49,7 @@ function gitAutoCommit {
     echo ${writeOneLines[$1]} >>"$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" # commitファイルに追記
     cd $WORK_PATH
     git add .
+    sleep 3
     git commit -m "fix"
 }
 
