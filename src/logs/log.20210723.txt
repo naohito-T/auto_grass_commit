@@ -25,3 +25,5 @@ declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
        0
 5
        0
+       0
+

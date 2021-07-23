@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# 一日に一回でcron起動にする(自分のPCでかなり動作させたくため)
-# 夜 22時 startで良い
-
-# 定数
+# 現在のディレクトリ
 WORK_PATH=$(pwd)
 # commit用ディレクトリ名
 COMMIT_DIR='/commits'
@@ -40,16 +37,19 @@ exec >>"$WORK_PATH""$LOGS_DIR""$LOG_FILE" 2>&1
 
 # 現在の曜日 dateコマンドは引数に+%uwつけると月曜日-日曜日を1~7の数値として取得できる
 CURRENT_DAY=$(date '+%u')
-echo $CURRENT_DAY
 
 # 行数取得 一つのファイルは500行で終わりにする。
 FILE_LINE=$(cat $WORK_PATH$COMMIT_DIR$COMMIT_FILE) | wc -l
+echo "${FILE_LINE}"
 
 ## ここまで完成
 
 # function省略は動作しない環境があるとのことで、functionは付与
 function gitAutoCommit {
-    echo ${commitMsgs[$1]} >>"$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE"
+    echo ${writeOneLines[$1]} >>"$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" # commitファイルに追記
+    cd $WORK_PATH
+    git add .
+    git commit -m "fix"
 }
 
 for commitWeek in "${!commitWeeks[@]}"; do                      # 連想配列展開
