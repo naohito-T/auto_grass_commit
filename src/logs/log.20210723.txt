@@ -31,3 +31,5 @@ declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
  3 files changed, 9 insertions(+), 6 deletions(-)
 [develop 3787052] fix
  2 files changed, 3 insertions(+)
+[develop 717f0fa] fix
+ 2 files changed, 3 insertions(+)
