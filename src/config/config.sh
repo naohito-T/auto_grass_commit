@@ -8,7 +8,7 @@
 #
 
 # 曜日と回数の連想配列 settings
-declare -A commitWeeks=(
+commitWeeks=(
     [1]="5"
     [2]="5"
     [3]="5"

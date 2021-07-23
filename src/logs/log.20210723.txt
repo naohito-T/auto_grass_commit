@@ -1,0 +1,27 @@
+5
+./autoCommit.sh: line 50: /Users/tanakanaohitoshi/work/product/auto_grass_commit/src/commits/auto_commits.txt: Permission denied
+       0
+5
+       0
+5
+       0
+5
+./autoCommit.sh: line 50: ${cat $WORK_PATH$COMMIT_DIR$COMMIT_FILE}: bad substitution
+       0
+5
+       0
+5
+       0
+5
+       0
+./autoCommit.sh: line 40: /Users/tanakanaohitoshi/work/product/auto_grass_commit/srcconfigconfig.sh: No such file or directory
+5
+       0
+/Users/tanakanaohitoshi/work/product/auto_grass_commit/src/config/config.sh: line 11: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+5
+       0
+5
+       0
+5
+       0
