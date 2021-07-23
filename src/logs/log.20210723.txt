@@ -57,3 +57,5 @@ To github.com:naohito-T/auto_grass_commit.git
    d4d9631..602e79b  develop -> develop
 [develop 2097e3b] fix
  2 files changed, 5 insertions(+)
+       0
+
