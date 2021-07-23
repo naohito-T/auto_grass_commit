@@ -22,7 +22,7 @@ return コマンドに指定した値は、関数の終了ステータスとな�
 ## 関数
 
 ```sh
-# functionは省略可能
+# functionは省略可能だがMac OSだと動かなそう
 # 引数は$1 ~ $n で取得可能
 function xxx() {
     echo "{$1}"
