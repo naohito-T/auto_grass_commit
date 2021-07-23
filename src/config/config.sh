@@ -7,18 +7,19 @@
 # commitWeeks : 各曜日ごとのcommit回数
 #
 
-declare -A writeOneLines=(
+# 配列
+writeOneLines=(
+    [0]="fix code${uuid}"
     [1]="fix code${uuid}"
     [2]="fix code${uuid}"
     [3]="fix code${uuid}"
     [4]="fix code${uuid}"
     [5]="fix code${uuid}"
     [6]="fix code${uuid}"
-    [7]="fix code${uuid}"
 )
 
-# commit message settings
-declare -A commitMsgs=(
+# commit message settings (連想配列)
+commitMsgs=(
     [1]="feature/fix_code_shell${uuid}"
     [2]="feature/fix_code_shell${uuid}"
     [3]="feature/fix_code_shell${uuid}"
