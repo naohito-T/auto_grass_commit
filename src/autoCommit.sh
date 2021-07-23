@@ -50,10 +50,10 @@ echo $CURRENT_DAY
 # 行数取得 一つのファイルは500行で終わりにする。
 FILE_LINE=cat "$WORK_PATH""$COMMIT_DIR""$COMMIT_FILE" | wc -l
 
-function getUuid() {
+function getUuid {
     # uuid実行バイナリがあることを確認し生成
     which uuidgen # /usr/bin/uuidgen
-    if [ "$?" -eq 0 ]; then
+    if [ $? -eq 0 ]; then
         echo uuidgen
     else
         echo 'Not Found uuidgen'
@@ -66,7 +66,7 @@ function gitAutoCommit {
     echo ${commitMsgs[$1]}
 }
 
-for commitWeek in "${!commitWeeks[@]}"; do
+for commitWeek in "${!commitWeeks[@]}"; do                      # 連想配列展開
     if [ "$commitWeek" -eq "$CURRENT_DAY" ]; then               # 曜日が一緒であれば
         for ((i = 0; i < ${commitWeeks[$commitWeek]}; i++)); do # さらにその回数文回す
             gitAutoCommit "$i"
