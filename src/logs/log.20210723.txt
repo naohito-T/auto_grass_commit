@@ -51,3 +51,7 @@ declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
  2 files changed, 3 insertions(+)
        0
 
+[develop 602e79b] fix
+ 3 files changed, 9 insertions(+), 16 deletions(-)
+To github.com:naohito-T/auto_grass_commit.git
+   d4d9631..602e79b  develop -> develop
