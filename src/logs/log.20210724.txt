@@ -60,3 +60,7 @@ Vim: Finished.
  2 files changed, 16 insertions(+)
 To github.com:naohito-T/auto_grass_commit.git
    d953f1b..598ab48  develop -> develop
+[develop 8702e78] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   598ab48..8702e78  develop -> develop
