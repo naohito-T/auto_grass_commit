@@ -64,3 +64,7 @@ To github.com:naohito-T/auto_grass_commit.git
  2 files changed, 5 insertions(+)
 To github.com:naohito-T/auto_grass_commit.git
    598ab48..8702e78  develop -> develop
+[develop c33b336] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   8702e78..c33b336  develop -> develop
