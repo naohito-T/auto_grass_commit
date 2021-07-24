@@ -7,3 +7,7 @@ autoCommit.sh:55: bad substitution
  2 files changed, 3 insertions(+)
 To github.com:naohito-T/auto_grass_commit.git
    02d2cff..295d209  develop -> develop
+[develop 2d1ed82] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   295d209..2d1ed82  develop -> develop
