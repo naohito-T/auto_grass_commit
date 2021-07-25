@@ -1,2 +1,7 @@
        0
 
+[develop 2063804] fix
+ 3 files changed, 7 insertions(+)
+ create mode 100644 src/logs/log.20210725.txt
+To github.com:naohito-T/auto_grass_commit.git
+   258b808..2063804  develop -> develop
