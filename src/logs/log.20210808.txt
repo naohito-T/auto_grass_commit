@@ -1,0 +1,45 @@
+       0
+
+[develop 3fa2654] fix
+ 2 files changed, 3 insertions(+)
+ create mode 100644 src/logs/log.20210808.txt
+To github.com:naohito-T/auto_grass_commit.git
+   3eeae37..3fa2654  develop -> develop
+[develop f0be422] fix
+ 2 files changed, 6 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   3fa2654..f0be422  develop -> develop
+[develop 3391e7a] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   f0be422..3391e7a  develop -> develop
+[develop 08dc797] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   3391e7a..08dc797  develop -> develop
+[develop c4fca4b] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   08dc797..c4fca4b  develop -> develop
+       0
+
+[develop ce55566] fix
+ 2 files changed, 7 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   c4fca4b..ce55566  develop -> develop
+[develop 1fd7d91] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   ce55566..1fd7d91  develop -> develop
+[develop 248efab] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   1fd7d91..248efab  develop -> develop
+[develop a166f60] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   248efab..a166f60  develop -> develop
+[develop 3c41746] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   a166f60..3c41746  develop -> develop

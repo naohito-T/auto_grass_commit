@@ -1,0 +1,19 @@
+       0
+
+[develop ca8214b] fix
+ 3 files changed, 7 insertions(+)
+ create mode 100644 src/logs/log.20210810.txt
+To github.com:naohito-T/auto_grass_commit.git
+   fe244ca..ca8214b  develop -> develop
+[develop ea32e4f] fix
+ 2 files changed, 6 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   ca8214b..ea32e4f  develop -> develop
+[develop fb355eb] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   ea32e4f..fb355eb  develop -> develop
+[develop a7663eb] fix
+ 2 files changed, 5 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   fb355eb..a7663eb  develop -> develop
