@@ -53,3 +53,7 @@ hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
        0
 
+[develop da527ea] fix
+ 2 files changed, 3 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   528d558..da527ea  develop -> develop
