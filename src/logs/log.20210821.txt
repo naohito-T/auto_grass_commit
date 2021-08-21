@@ -23,3 +23,7 @@ To github.com:naohito-T/auto_grass_commit.git
    57788b9..d355f04  develop -> develop
        0
 
+[develop 3d39783] fix
+ 2 files changed, 7 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   d355f04..3d39783  develop -> develop
