@@ -5,3 +5,7 @@
  create mode 100644 src/logs/log.20210823.txt
 To github.com:naohito-T/auto_grass_commit.git
    850e584..7b6aaf8  develop -> develop
+[develop df7b17c] fix
+ 2 files changed, 6 insertions(+)
+To github.com:naohito-T/auto_grass_commit.git
+   7b6aaf8..df7b17c  develop -> develop
